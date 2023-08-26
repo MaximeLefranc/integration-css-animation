@@ -1,0 +1,200 @@
+:root {
+    --border-color: #B4B2BB;
+    --background-color: linear-gradient(to left, #EAEAEA, #F0F0F0);
+    --background-color-article: radial-gradient(circle at 10% 50%, rgb(255, 124, 0) 0%, rgb(255, 124, 0) 35%, rgb(255, 163, 77) 50%, rgb(255, 163, 77) 64%, #b1b1b1 24.5%, #cfcfcf 66%);
+    --background-color-article-hover: radial-gradient(circle at 10% 50%, rgb(255, 124, 0) 0%, rgb(255, 124, 0) 20%, rgb(255, 163, 77) 35%, rgb(255, 163, 77) 50%, #b1b1b1 24.5%, #cfcfcf 66%);
+    --color-title: radial-gradient(circle at 10% 50%, rgb(255, 124, 0) 0%, rgb(255, 124, 0) 20%, rgb(255, 163, 77) 40%, rgb(255, 163, 77) 50%, #7f7f7f 24.5%, #3b3b3b 66%);
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--background-color);
+}
+
+.header {
+    height: 100vh;
+    margin-bottom: 5rem;
+    background-image: url('./assets/rupixen-com-oVnCYVs_6Tk-unsplash.jpg');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: flex-end;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.header__title {
+    text-align: end;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    margin-right: 2rem;
+    font-size: 3rem;
+    line-height: initial;
+    text-transform: uppercase;
+    background-image: var(--color-title);
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 2s linear infinite;
+}
+
+.header__button {
+    text-decoration: none;
+    color: black;
+    margin-bottom: 4rem;
+    margin-right: 2rem;
+    padding: 1rem;
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+.header__button:hover {
+    transition: all 1s;
+    background-color: black;
+    color: white;
+    box-shadow: 3px 4px 3px 2px black;
+    animation: bounce 1s infinite;
+}
+
+.main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.article {
+    background-image: var(--background-color-article);
+    margin: 2rem;
+    width: 100%;
+    padding: 2rem;
+    height: 58%;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 20px 10px rgb(183, 183, 183);
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: flex-end;
+    transition: all 1s;
+}
+
+.article:hover {
+    transform: scale(1.08);
+    background-image: var(--background-color-article-hover);
+    animation: checked .5s infinite;
+    cursor: pointer;
+    transform: rotateY(360deg);
+}
+
+.article:active {
+    transition: all 1s;
+    animation: rotation 2s;
+}
+
+.article:active .article{
+    transform: scale(0.5);
+}
+
+.article__excerpt {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+    text-align: end;
+    overflow: hidden;
+    max-height: 16rem;
+    min-height: 16rem;
+}
+
+.article__title {
+    text-align: end;
+    min-height: 8rem;
+    max-height: 8rem;
+    margin-top: 3rem;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+}
+
+.footer {
+    text-align: center;
+    font-size: 1.2rem;
+    margin: 5rem 0 2rem 0;
+    color: #FE7C00;
+    border-top: 1px solid #FE7C00;
+    padding-top: 1rem;
+}
+
+@media screen and (min-width: 750px) {
+    .article {
+        width: 30%;
+    }
+}
+
+@media screen and (min-width: 950px) {
+    .article {
+        width: 15%;
+    }
+}
+
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+      }
+      25% {
+        transform: translateY(-10px);
+      }
+      50% {
+        transform: translateY(0);
+      }
+      75% {
+        transform: translateY(-5px);
+      }
+}
+
+@keyframes checked {
+    0%, 100% {
+        transform: rotate(0);
+        transform: scale(1.03)
+    }
+    25% {
+        transform: rotate(-2deg);
+      }
+      50% {
+        transform: rotate(0);
+      }
+      75% {
+        transform: rotate(2deg);
+      }
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate3d(1, 1, 1, 0deg);
+    }
+    50% {
+        transform: rotate3d(1, 1, 1, 360deg);
+    }
+    100% {
+        transform: rotate3d(1, 1, 1, 0deg);
+    }
+}
+
+@keyframes textclip {
+    to {
+      background-position: 200% center;
+    }
+  }
